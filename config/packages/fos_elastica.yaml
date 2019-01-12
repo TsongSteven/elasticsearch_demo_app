@@ -1,0 +1,16 @@
+fos_elastica: 
+  clients: 
+    default: 
+      host: localhost
+      port: 9200
+  indexes: 
+    app: 
+      types: 
+        user: 
+          properties:
+            name: ~
+          persistence: 
+            driver: orm
+            finder: ~
+            model: App\Entity\User
+            provider: ~

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="container">
+	<h1>Hello Elastic</h1>
+	
+	<form method="get" role="search" action="" class="form-inline">
+		
+		<div class="form-group">
+			
+			<input type="text" name="query" value="{{ app.request.get('query') }}" class="form-control" placeholder="{{ 'Search User'|trans  }}">
+			
+		</div>
+		
+		<input type="submit" value="{{'Search'|trans}}" class="btn btn-warning">
+	</form>
+	<br>
+	<br>
+	{% if not users|length %}
+		
+		<h3>User Not Found</h3>
+	{% endif  %}
+	
+	{% if users|length %}
+
+		<table class="table table-dark">
+			
+			<thead>
+			<tr>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>Address</th>
+			</tr>			
+			</thead>
+		
+		{% for user in users %}
+				
+		<tr>
+			<td>{{ user.name }}</td>
+			<td>{{ user.phone }}</td>
+			<td>{{ user.addres }}</td>
+		</tr>
+		
+		{% endfor %}	
+	
+	{% endif %}
+	
+	</table>
+</div>
+{% endblock %}

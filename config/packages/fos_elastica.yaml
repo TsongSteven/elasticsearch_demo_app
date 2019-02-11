@@ -9,6 +9,8 @@ fos_elastica:
         user: 
           properties:
             name: ~
+            phone: ~
+            addres: ~
           persistence: 
             driver: orm
             finder: ~
